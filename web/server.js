@@ -11,7 +11,7 @@ app.on('error', (err) => {
 })
 
 router.get('/hello', (ctx, next) => {
-	return ctx.res('Hello Node.js!')
+	ctx.body = 'Hello Node.js!';
 });
 
 app

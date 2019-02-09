@@ -1,17 +1,27 @@
 'use strict'
-const dotenv = require('dotenv'); // this loads the defined variables from .env
-dotenv.config();
+require('dotenv').config(); // this loads the defined variables from .env
 
-const env = NODE_ENV;
+const env = process.env.NODE_ENV;
 
 const dev = {
 	app: {
-		port: parseInt(PORT) || 3000
+		port: parseInt(process.env.PORT) || 3000
 	},
 	db: {
-		host: DEV_DB_HOST || 'localhost',
-		port: parseInt(DEV_DB_PORT) || 27017,
-		name: DEV_DB_NAME || 'db'
+		host: process.env.DEV_DB_HOST || 'localhost',
+		port: parseInt(process.env.DEV_DB_PORT) || 27017,
+		name: process.env.DEV_DB_NAME || 'db'
+	}
+};
+
+const test = {
+	app: {
+	  port: parseInt(process.env.TEST_APP_PORT) || 3001
+	},
+	db: {
+	  host: process.env.TEST_DB_HOST || 'localhost',
+	  port: parseInt(process.env.TEST_DB_PORT) || 27018,
+	  name: process.env.TEST_DB_NAME || 'test'
 	}
 };
 
@@ -19,8 +29,8 @@ const dev = {
 
 
 const config = {
-  dev
+  dev,
+  test
 }
 
 module.exports = config[env];
-// module.exports = config;

@@ -7,7 +7,7 @@ const server = require('./server')
 
 const serverListen = promisify(server.listen).bind(server)
 
-serverListen(config.port)
+serverListen(config.app.port)
   .then(() => logger.info(`Server is listening on port ${config.port}`))
   .catch((err) => {
     logger.error('Error happened during server start', err)
