@@ -27,7 +27,7 @@
   "homepage": "https://github.com/mauriceLC92/Twelve-Factor-Backend#readme",
   "dependencies": {
     "ioredis": "3.1.1",
-    "joi": "10.6.0",
+    "joi": "^10.6.0",
     "knex": "0.13.0",
     "koa": "2.3.0",
     "koa-bodyparser": "4.2.0",
@@ -40,7 +40,7 @@
     "request": "2.81.0",
     "request-promise-native": "1.0.4",
     "semver": "5.3.0",
-    "sinon": "2.3.6",
+    "sinon": "^2.3.6",
     "sinon-chai": "2.11.0",
     "winston": "2.3.1"
   },
