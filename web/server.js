@@ -6,16 +6,12 @@ const router = require('./router/router');
 
 const app = new Koa()
 
-app.on('error', (err) => {
-  logger.error('Server error', { error: err.message })
-})
-
-router.get('/hello', (ctx, next) => {
-	ctx.body = 'Hello Node.js!';
-});
-
 app
 	.use(router.routes())
 	.use(router.allowedMethods());
+
+app.on('error', (err) => {
+  logger.error('Server error', { error: err.message })
+})
 
 module.exports = app
